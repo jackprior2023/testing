@@ -1,49 +1,9 @@
-<!DOCTYPE html>
+
 <html>
-<head>
-  <title>Google Sign-In with Firebase Authentication</title>
-
-  <!-- Firebase Authentication library -->
-  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
-
-  <!-- Google Sign-In library -->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-  <script>
-    // Initialize Firebase Authentication
-    const firebaseConfig = {
-      // Your Firebase project configuration
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    // Initialize Google Sign-In
-    gapi.load('auth2', function() {
-      gapi.auth2.init({
-        client_id: '291262019100-t52qikc9qc4sukv2bbh5bjjfsnu9gvbj.apps.googleusercontent.com',
-      });
-    });
-
-    function onSignIn(googleUser) {
-      // Get user's Google ID token
-      const idToken = googleUser.getAuthResponse().id_token;
-
-      // Authenticate user with Firebase Authentication
-      const credential = firebase.auth.GoogleAuthProvider.credential(idToken);
-      firebase.auth().signInWithCredential(credential)
-        .then((userCredential) => {
-          // User is signed in
-          const user = userCredential.user;
-          console.log('User signed in:', user);
-        })
-        .catch((error) => {
-          // Error occurred during authentication
-          console.error('Error signing in:', error);
-        });
-    }
-  </script>
-</head>
-<body>
-  <!-- Google Sign-In button -->
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-</body>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+  </body>
 </html>
